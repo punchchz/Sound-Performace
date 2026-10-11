@@ -4,58 +4,99 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Music Sheet</title>
+  <title>Circle Composition</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <main class="music-sheet">
+  <main class="composition">
 
-    <section class="staff">
-      <div class="bar-lines">
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-      <div class="music-text text-2">HIJKLMN</div>
-    </section>
+    <!-- Top bar -->
+    <div class="top-bar"></div>
 
-    <section class="staff">
-      <div class="bar-lines">
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-      <div class="music-text text-3">OPQRSTU</div>
-    </section>
+    <!-- Two small dots below the bar -->
+    <div class="top-dots">
+      <span></span>
+      <span></span>
+    </div>
 
-    <section class="staff">
-      <div class="bar-lines">
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
+    <!-- Concentric circles -->
+    <div class="rings left-rings">
+      <div class="ring ring-1">
+        <div class="ring ring-2">
+          <div class="ring ring-3">
+            <div class="ring ring-4"></div>
+          </div>
+        </div>
       </div>
-      <div class="music-text text-1">
-  <span>A</span><span>B</span><span>C</span><span>D</span><span>E</span>
+    </div>
+
+    <div class="rings right-rings">
+      <div class="ring ring-1">
+        <div class="ring ring-2">
+          <div class="ring ring-3">
+            <div class="ring ring-4"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Four middle dots -->
+    <div class="middle-dots">
+      <span></span>
+      <span></span>
+    </div>
+
+    <!-- Left cluster -->
+    <div class="cluster left-cluster">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+    <!-- Right cluster -->
+    <div class="cluster right-cluster">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+    <!-- Bottom dots -->
+    <div class="bottom-dots left-bottom">
+      <span></span><span></span><span></span>
+      <span></span><span></span><span></span>
+    </div>
+
+    <div class="bottom-dots right-bottom">
+      <span></span><span></span><span></span>
+      <span></span><span></span><span></span>
+    </div>
+
+
+<div class="shape-center">
+  <span class="test-animation">Y</span>
 </div>
-    </section>
 
-    <section class="staff">
-      <div class="bar-lines">
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-      <div class="music-text text-4">VWXYZ</div>
-    </section>
+<!-- Row of smaller shapes -->
+<div class="shape-row row-one">
+    <span></span>
+  <span class="character one">A</span>
+  <span class="character two">B</span>
+  <span class="character three">C</span>
+  <span class="character four">D</span>
+  <span class="character five">E</span>
+  <span></span>
+</div>
+
+<!-- Second row -->
+<div class="shape-row row-two">
+  <span class="character six">G</span>
+  <span class="character seven">A</span>
+  <span class="character eight">D</span>
+</div>
+
 
   </main>
 
