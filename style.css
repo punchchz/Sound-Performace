@@ -1,8 +1,7 @@
 
-
 @font-face {
-	font-family: "Sound1";
-	src: url("Sound1VF.ttf") format("truetype");
+  font-family: "Sound1";
+  src: url("Sound1VF.ttf") format("truetype");
 }
 
 * {
@@ -11,19 +10,19 @@
 
 body {
   margin: 0;
-  background: #000;
+  background: black;
 }
 
 .composition {
   position: relative;
   width: 100%;
-  height: 100vh;
+  height:100vh;
   min-height: 600px;
-  background: #000;
+  background: black;
   overflow: visible;
 }
 
-/* Top rounded bar */
+/* Top bar */
 .top-bar {
   position: absolute;
   width: 28%;
@@ -35,7 +34,7 @@ body {
   border-radius: 20px;
 }
 
-/* Top two dots */
+/* Top dots */
 .top-dots {
   position: absolute;
   top: 10.1%;
@@ -45,22 +44,34 @@ body {
   justify-content: space-between;
 }
 
+/* Middle dots */
+.middle-dots {
+  position: absolute;
+  top: 55%;
+  left: 34.2%;
+  width: 31.6%;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Small dots */
 .top-dots span,
-.middle-dots span {
+.middle-dots span,
+.bottom-dots span {
   width: 12px;
   height: 12px;
   background: #404040;
   border-radius: 50%;
 }
 
-/* Concentric circles */
+/* Rings */
 .rings {
   position: absolute;
+  top: 10.7%;
   width: 29.5vw;
   height: 29.5vw;
   max-width: 430px;
   max-height: 430px;
-  top: 10.7%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -104,22 +115,7 @@ body {
   height: 50%;
 }
 
-/* two middle dots */
-.middle-dots {
-  position: absolute;
-  top: 55%;
-  left: 34.2%;
-  width: 31.6%;
-  display: flex;
-  justify-content: space-between;
-}
-
-.middle-dots span {
-  width: 12px;
-  height: 12px;
-}
-
-/* Large gray circle clusters */
+/* Large circles */
 .cluster {
   position: absolute;
   top: 64.2%;
@@ -154,13 +150,13 @@ body {
   grid-row: 2;
 }
 
-/* Bottom rows of small dots */
+/* Bottom dots */
 .bottom-dots {
   position: absolute;
   bottom: 1.3%;
+  width: 25%;
   display: flex;
   justify-content: space-between;
-  width: 25%;
 }
 
 .left-bottom {
@@ -171,14 +167,153 @@ body {
   right: 2.6%;
 }
 
-.bottom-dots span {
-  width: 12px;
-  height: 12px;
-  background: #404040;
-  border-radius: 50%;
+/* Main character */
+.shape-center {
+  position: absolute;
+  top: 6%;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 0 100px 50px;
+  color: white;
+  line-height: 1;
 }
 
-/* Adjust for smaller screens */
+/* Rows of characters */
+.shape-row {
+  position: absolute;
+  top: 2px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  font-family: "Sound1", sans-serif;
+  color: white;
+  line-height: 1;
+}
+
+.row-one {
+  top: 63%;
+}
+
+.row-two {
+  top: 80%;
+}
+
+.shape-row span {
+  display: inline-block;
+}
+
+/* Animated gradient character */
+.test-animation {
+  position: relative;
+  z-index: 100;
+  display: inline-block;
+  font: 400px "Sound1", sans-serif;
+  font-variation-settings: "SOND" 0;
+  padding: 0.2em 0.5em;
+  margin: -0.2em -0.5em;
+  background: linear-gradient(
+    180deg,
+    #ff1144,
+    #ff00f7,
+    black,
+    black
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 0 15px #ee00ff);
+  animation: example-animation 1s ease-in-out infinite alternate;
+}
+
+@keyframes example-animation {
+  0% {
+    font-variation-settings: "SOND" 0;
+  }
+  25% {
+    font-variation-settings: "SOND" 500;
+  }
+  50% {
+    font-variation-settings: "SOND" 750;
+  }
+  75% {
+    font-variation-settings: "SOND" 1000;
+  }
+  100% {
+    font-variation-settings: "SOND" 0;
+  }
+}
+
+/* Interactive characters */
+.character {
+  font-family: "Sound1", sans-serif;
+  font-size: 145px;
+  font-variation-settings: "SOND" 0;
+  display: inline-block;
+  cursor: crosshair;
+  padding: 0.6em;
+  margin: -0.6em;
+  color: white;
+  transition: font-variation-settings 0.3s ease;
+}
+
+.one:hover,
+.two:hover,
+.three:hover,
+.four:hover,
+.five:hover,
+.six:hover,
+.seven:hover,
+.eight:hover {
+  font-variation-settings: "SOND" 1000;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    font-variation-settings: "SOND" 1000;
+  }
+  50% {
+    font-variation-settings: "SOND" 0;
+  }
+}
+
+.character:hover {
+  animation: pulse 2s ease-in-out infinite;
+}
+
+/* Subtle vibration */
+@keyframes ring-shake {
+  0% {
+    translate: 0 0;
+  }
+  25% {
+    translate: 1px -1px;
+  }
+  50% {
+    translate: -1px 1px;
+  }
+  75% {
+    translate: 1px 1px;
+  }
+  100% {
+    translate: 0 0;
+  }
+}
+
+.rings {
+  animation: ring-shake 0.15s linear infinite;
+}
+
+.top-dots span,
+.middle-dots span,
+.bottom-dots span {
+  animation: ring-shake 0.15s linear infinite;
+}
+
+/* Tablet and smaller screens */
 @media (max-width: 700px) {
   .rings {
     width: 36vw;
@@ -202,159 +337,30 @@ body {
     width: 7px;
     height: 7px;
   }
+
+  .shape-row {
+    gap: 8px;
+  }
+
+  .character {
+    font-size: 100px;
+  }
 }
 
-/* Large central motif */
-.shape-center {
-  position: absolute;
-  top: 6%;
-  left: 50%;
-  transform: translateX(-50%);
-  color: white;
-  line-height: 1;
+/* White background on small screens */
+@media (max-width: 600px) {
+  body,
+  .composition {
+    background: white;
+  }
 
-  padding-left: 100px;
-  padding-right: 100px;
-  padding-bottom: 50px;
-}
+  .ring {
+    border-color: black;
+  }
 
-/* Smaller motif rows */
-.shape-row {
-  position: absolute;
-  top: 2px;
-  left: 50%;
-  transform: translateX(-50%);
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 30px;
-
-  font-family: "Sound1", sans-serif;
-  color: white;
-  line-height: 1;
-}
-
-.row-one {
-  top: 63%;
-}
-
-.row-two {
-  top: 80%;
-}
-
-/* Individual glyphs */
-.shape-row span {
-  display: inline-block;
-}
-
-.test-animation {
-  position: relative;
-  z-index: 100;
-
-  display: inline-block;
-  font: 400px "Sound1", sans-serif;
-  font-variation-settings: "SOND" 0;
-
-  /* give the background room to paint under the overflowing glyph */
-  padding: 0.2em 0.5em;
-  margin: -0.2em -0.5em;
-
-  background: linear-gradient(180deg, #d8f1ff, #2dccde, #8BE8C2, #E4E8A5);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  -webkit-text-fill-color: transparent;
-
-  filter: drop-shadow(0 0 15px #45D9E8);
-  animation: example-animation 1s ease-in-out infinite alternate;
-}
-
-/* define the animation */
-@keyframes example-animation {
-	0% {
-		font-variation-settings: "SOND" 0;
-	}
-	25% {
-		font-variation-settings: "SOND" 500;
-	}
-	50% {
-		font-variation-settings: "SOND" 750;
-		
-	}
-	75% {
-		font-variation-settings: "SOND" 1000;
-	}
-	100% {
-		font-variation-settings: "SOND" 0;
-		
-	}
-}
-
-
-
-.character {
-  font-family: "Sound1", sans-serif;
-  font-size: 140px;
-  font-variation-settings: "SOND" 0;
-  display: inline-block;
-  cursor: crosshair;
-
-  /* Default visible color */
-  color: rgb(255, 255, 255)F;
-
-  transition: filter 0.5s ease,
-              font-variation-settings 0.3s ease;
-}
-
-
-/* Hover on character one */
-.one:hover {
-  color: rgb(255, 255, 255);
-  font-variation-settings: "SOND" 1000;
-}
-
-/* Hover on character two */
-.two:hover {
-  color: rgb(255, 255, 255);
-  font-variation-settings: "SOND" 1000;
-}
-
-.three:hover {
-  color: rgb(255, 255, 255);
-  font-variation-settings: "SOND" 1000;
-}
-
-.four:hover {
-  color: rgb(255, 255, 255);
-  font-variation-settings: "SOND" 1000;
-}
-
-.five:hover {
-  color: rgb(255, 255, 255);
-  font-variation-settings: "SOND" 1000;
-}
-
-.six:hover{
-     color: rgb(255, 255, 255);
-  font-variation-settings: "SOND" 1000;
-}
-
-.seven:hover{
-     color: rgb(255, 255, 255);
-  font-variation-settings: "SOND" 1000;
-}
-
-.eight:hover:hover{
-     color: rgb(255, 255, 255);
-  font-variation-settings: "SOND" 1000;
-}
-
-@keyframes pulse {
-  0%, 100% { font-variation-settings: "SOND" 1000; }
-  50%      { font-variation-settings: "SOND" 0; }
-}
-
-.character:hover {
-  animation: pulse 2s ease-in-out infinite;
+  .shape-row,
+  .shape-center,
+  .character {
+    color: black;
+  }
 }
