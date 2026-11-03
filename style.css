@@ -257,7 +257,7 @@ body {
   padding: 0.6em;
   margin: -0.6em;
   color: white;
-  transition: font-variation-settings 0.3s ease;
+  transition: font-variation-settings 0.2s ease;
 }
 
 .one:hover,
@@ -281,36 +281,7 @@ body {
 }
 
 .character:hover {
-  animation: pulse 2s ease-in-out infinite;
-}
-
-/* Subtle vibration */
-@keyframes ring-shake {
-  0% {
-    translate: 0 0;
-  }
-  25% {
-    translate: 1px -1px;
-  }
-  50% {
-    translate: -1px 1px;
-  }
-  75% {
-    translate: 1px 1px;
-  }
-  100% {
-    translate: 0 0;
-  }
-}
-
-.rings {
-  animation: ring-shake 0.15s linear infinite;
-}
-
-.top-dots span,
-.middle-dots span,
-.bottom-dots span {
-  animation: ring-shake 0.15s linear infinite;
+  animation: pulse 1s ease-in-out infinite;
 }
 
 /* Tablet and smaller screens */
